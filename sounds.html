@@ -1,0 +1,81 @@
+<html>
+<head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:url("animal.jpg");
+    background-size: cover;        
+    background-position: center; 
+    background-repeat: no-repeat;
+
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 10%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div>
+        <img src="dog.jpg" alt="dog image" onclick="playSound('dog')">
+        <audio id="dog" src="big-dog-barking-300504.mp3"></audio>
+    </div>
+
+    <div>
+        <img src="lion.jpg" alt="lion image" onclick="playSound('lion')">
+        <audio id="lion" src="lion-roaring-sfx-293295.mp3"></audio>
+    </div>
+
+    <div>
+        <img src="horse.jpg" alt="horse image" onclick="playSound('horse')">
+        <audio id="horse" src="horse-neighing-type-02-293307.mp3"></audio>
+    </div>
+
+    <div>
+        <img src="can.jpg" alt="cat image" onclick="playSound('cat')">
+        <audio id="cat" src="cat-98721.mp3"></audio>
+    </div>
+</div>
+
+<script>
+let currentAudio = null;
+
+function playSound(animalId) {
+    if (currentAudio && !currentAudio.paused) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+
+    currentAudio = document.getElementById(animalId);
+    currentAudio.play();
+}
+</script>
+
+</body>
+</html>
