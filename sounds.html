@@ -12,7 +12,6 @@ body {
     background-size: cover;        
     background-position: center; 
     background-repeat: no-repeat;
-
 }
 
 .container {
@@ -36,6 +35,19 @@ img {
 
 img:hover {
     transform: scale(1.05);
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 15%;
+    }
 }
 </style>
 </head>
@@ -79,3 +91,4 @@ function playSound(animalId) {
 
 </body>
 </html>
+
